@@ -1,0 +1,71 @@
+.footer-container {
+  .share-links {
+    background: #efeeff;
+    padding: 0.7rem;
+    p {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+    .fa-brands {
+      font-size: 2.5rem;
+    }
+    .fa-square-facebook {
+      color: #3b5998;
+    }
+    .fa-square-twitter {
+      color: #00acee;
+    }
+    .fa-square-whatsapp {
+      color: #25d366;
+    }
+  }
+  .footer {
+    direction: flex;
+    background: #14123d;
+    color: #b1aeae;
+    font-weight: 800;
+    padding: 0.7rem;
+    line-height: 1.8rem;
+
+    p {
+      font-size: 1.2rem;
+
+      .fa-heart {
+        color: #ff0000;
+      }
+
+      .fa-hammer {
+        color: #8f5746;
+      }
+    }
+
+    .copy-right {
+      font-size: 1rem;
+
+      .fa-copyright {
+        color: #ffffff;
+      }
+
+      span {
+        color: #ff0000;
+      }
+    }
+
+    .social-links {
+      font-size: 1.3rem;
+      .fa-facebook-f {
+        color: #6d98f5;
+      }
+      .fa-x-twitter {
+        color: #ffffff;
+      }
+      .fa-youtube {
+        color: #ff0000;
+      }
+    }
+  }
+
+  .fa-brands {
+    padding: 0.5rem 0.7rem;
+  }
+}

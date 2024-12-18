@@ -1,0 +1,31 @@
+.header {
+  background: #14123d;
+  color: #b1aeae;
+  display: flex;
+  align-items: center;
+  min-height: 2.6rem;
+  width: 100%;
+
+  .brand-logo {
+    width: 4rem;
+    // height: 100%;
+    padding: 0.3rem 0.8rem;
+  }
+
+  .date-picker {
+    padding: 0.3rem 0.8rem;
+    font-weight: 800;
+
+    span {
+      color: #ffffff;
+      padding-left: 0.5rem;
+    }
+    .fa-calendar-days {
+      color: #ffffff;
+    }
+  }
+
+  .menu {
+    flex: 1;
+  }
+}
