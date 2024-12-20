@@ -1,6 +1,8 @@
+@use "../../styles/variables" as var;
+
 .footer-container {
   .share-links {
-    background: #efeeff;
+    background: var.$color-light-purple;
     padding: 0.7rem;
     p {
       font-size: 1.3rem;
@@ -10,19 +12,19 @@
       font-size: 2.5rem;
     }
     .fa-square-facebook {
-      color: #3b5998;
+      color: var.$color-facebook-blue;
     }
     .fa-square-twitter {
-      color: #00acee;
+      color: var.$color-twitter-blue;
     }
     .fa-square-whatsapp {
-      color: #25d366;
+      color: var.$color-whatsapp-green;
     }
   }
   .footer {
     direction: flex;
-    background: #14123d;
-    color: #b1aeae;
+    background: var.$primary-color;
+    color: var.$light-gray;
     font-weight: 800;
     padding: 0.7rem;
     line-height: 1.8rem;
@@ -31,11 +33,11 @@
       font-size: 1.2rem;
 
       .fa-heart {
-        color: #ff0000;
+        color: var.$red;
       }
 
       .fa-hammer {
-        color: #8f5746;
+        color: var.$color-brown;
       }
     }
 
@@ -43,24 +45,24 @@
       font-size: 1rem;
 
       .fa-copyright {
-        color: #ffffff;
+        color: var.$white;
       }
 
       span {
-        color: #ff0000;
+        color: var.$red;
       }
     }
 
     .social-links {
       font-size: 1.3rem;
       .fa-facebook-f {
-        color: #6d98f5;
+        color: var.$color-light-blue;
       }
       .fa-x-twitter {
-        color: #ffffff;
+        color: var.$white;
       }
       .fa-youtube {
-        color: #ff0000;
+        color: var.$red;
       }
     }
   }

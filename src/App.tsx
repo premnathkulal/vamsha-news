@@ -3,8 +3,8 @@ import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import LogoBanner from "./assets/logo-banner.jpeg";
 import Home from "./pages/home-page/Home";
-import Admin from "./pages/home-page/admin-page/Admin";
-import AdminLogin from "./pages/home-page/admin-page/AdminLogin";
+import Admin from "./pages/admin-page/Admin";
+import AdminLogin from "./pages/admin-page/AdminLogin";
 
 function App() {
   return (

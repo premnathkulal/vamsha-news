@@ -1,5 +1,5 @@
 import "./AdminLogin.scss";
-import VamshaLogo from "../../../assets/vamsha-logo.png";
+import VamshaLogo from "../../assets/vamsha-logo.png";
 import { FormEvent, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";

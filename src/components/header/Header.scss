@@ -1,6 +1,8 @@
+@use "../../styles/variables" as var;
+
 .header {
-  background: #14123d;
-  color: #b1aeae;
+  background: var.$primary-color;
+  color: var.$light-gray;
   display: flex;
   align-items: center;
   min-height: 2.6rem;
@@ -17,11 +19,11 @@
     font-weight: 800;
 
     span {
-      color: #ffffff;
+      color: var.$white;
       padding-left: 0.5rem;
     }
     .fa-calendar-days {
-      color: #ffffff;
+      color: var.$white;
     }
   }
 
