@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import LogoBanner from "./assets/logo-banner.jpeg";
@@ -13,7 +13,9 @@ function App() {
         <img src={LogoBanner} alt="logo-banner" className="logo-banner" />
       </div>
       <Header />
-      <AdminLogin />
+      <div className="app-content">
+        <Home />
+      </div>
       <Footer />
     </div>
   );
