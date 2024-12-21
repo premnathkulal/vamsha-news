@@ -1,22 +1,26 @@
 import "./Home.scss";
 import NewsPdf from "../../assets/Vijay-Karnataka.pdf";
+import { useEffect, useState } from "react";
 import { Document, Page } from "react-pdf";
 import HTMLFlipBook from "react-pageflip";
-import { useEffect, useState } from "react";
-// import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-// import "react-pageflip/dist/index.css";
 
 const Home = () => {
-  const [file] = useState(NewsPdf); // Replace with your PDF path
+  const [file] = useState(NewsPdf);
   const [numPages, setNumPages] = useState(null);
-  const [pageWidth, setPageWidth] = useState(500); // Width of the flipbook pages
-  const [pageHeight, setPageHeight] = useState(700); // Height of the flipbook pages
+  const [pageWidth, setPageWidth] = useState(500);
+  const [pageHeight, setPageHeight] = useState(790);
 
   useEffect(() => {
     const updatePageSize = () => {
-      const containerWidth = window.innerWidth * 0.8; // Adjust according to layout
-      const containerHeight = window.innerHeight * 0.8; // Adjust according to layout
-      const aspectRatio = 500 / 700; // Flipbook aspect ratio
+      let containerWidth = window.innerWidth;
+      let containerHeight = window.innerHeight;
+
+      if (!(window.innerWidth < 500)) {
+        containerWidth = window.innerWidth * 0.8;
+        containerHeight = window.innerHeight * 0.8;
+        return;
+      }
+      const aspectRatio = 500 / 790;
 
       if (containerWidth / aspectRatio > containerHeight) {
         setPageHeight(containerHeight);
@@ -37,15 +41,8 @@ const Home = () => {
   };
 
   return (
-    <div style={{ textAlign: "center", margin: "20px" }}>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          margin: "20px auto",
-          width: "80%",
-        }}
-      >
+    <div className="home">
+      <div className="new-paper-container">
         <HTMLFlipBook
           width={pageWidth}
           height={pageHeight}
@@ -74,7 +71,7 @@ const Home = () => {
           disableFlipByClick={false}
         >
           {Array.from(new Array(numPages), (_, index) => (
-            <div key={index} className="demoPage">
+            <div key={index}>
               <Document
                 file={file}
                 onLoadSuccess={onDocumentLoadSuccess}
