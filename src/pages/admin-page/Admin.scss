@@ -140,7 +140,7 @@
 }
 
 // Mobile Styles
-@media (max-width: 938px) {
+@media (max-width: 1000px) {
   .main-content {
     .visitor-info {
       .info-card {
@@ -150,13 +150,18 @@
   }
 
   .sidebar-mobile {
-    // display: none;
+    display: none;
     position: absolute;
     height: 100%;
     top: 10;
     left: 0;
     z-index: 1000;
     width: 86% !important;
+    animation: slide-in 0.3s forwards;
+  }
+
+  .open {
+    display: block;
   }
 }
 
@@ -174,5 +179,14 @@
   }
   75% {
     transform: rotate(20deg);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
   }
 }
