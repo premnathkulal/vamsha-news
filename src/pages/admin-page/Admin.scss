@@ -1,3 +1,178 @@
-.admin-login {
+@use "../../styles/variables" as var;
+
+.admin-page {
+  color: #333;
+  display: flex;
   min-height: 100vh;
+  // flex-direction: column;
+
+  .main-content {
+    flex-grow: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+
+    .admin-header {
+      text-align: left;
+      width: 100%;
+      margin-bottom: 1.2rem;
+
+      p {
+        font-size: 1.1rem;
+        margin: 0;
+      }
+
+      .hand-wave {
+        font-size: 1.5rem; /* Adjust size */
+        animation: wave-animation 1.5s infinite;
+        display: inline-block;
+        transform-origin: 70% 70%; /* Adjust origin to match the "wrist" */
+      }
+
+      .page-title {
+        font-size: 1.8rem;
+        color: #333;
+        font-weight: 700;
+      }
+    }
+
+    .visitor-info {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 40px;
+      width: 100%;
+      flex-wrap: wrap;
+
+      .info-card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: var.$card-shadow;
+        padding: 20px;
+        text-align: center;
+        width: 280px;
+
+        h2 {
+          font-size: 1.4rem;
+          color: #444;
+          margin-bottom: 10px;
+        }
+
+        p {
+          font-size: 1.6rem;
+          font-weight: bold;
+          color: #4caf50;
+        }
+      }
+    }
+  }
+
+  .sidebar {
+    width: 360px;
+    background-color: var.$primary-color;
+    color: white;
+    box-shadow: var.$card-shadow;
+    border-top: 1px solid var.$white;
+
+    .options {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      text-align: left;
+      font-size: 1.2rem;
+      font-weight: 800;
+
+      .option {
+        cursor: pointer;
+        padding: 10px 20px;
+
+        .action-btn {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          width: 100%;
+
+          .icon {
+            margin-left: auto;
+            color: var.$secondary-color;
+          }
+
+          .logout-icon {
+            color: var.$red;
+          }
+        }
+
+        &:hover {
+          background: var.$secondary-color;
+          color: var.$primary-color;
+
+          .action-btn {
+            .icon {
+              color: var.$primary-color;
+            }
+          }
+        }
+      }
+
+      // .bottom-option {
+      //   margin-top: auto
+      // }
+    }
+
+    .selected {
+      color: var.$primary-color;
+      background: var.$white;
+      border-left: 10px solid var.$secondary-color;
+      padding-left: 10px !important;
+
+      .action-btn {
+        .icon {
+          color: var.$primary-color !important;
+        }
+      }
+    }
+  }
+}
+
+// Mobile Styles
+@media (max-width: 938px) {
+  .main-content {
+    .visitor-info {
+      .info-card {
+        width: 100% !important;
+      }
+    }
+  }
+
+  .sidebar-mobile {
+    // display: none;
+    position: absolute;
+    height: 100%;
+    top: 10;
+    left: 0;
+    z-index: 1000;
+    width: 86% !important;
+  }
+}
+
+/* Keyframes for waving motion */
+@keyframes wave-animation {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+  75% {
+    transform: rotate(20deg);
+  }
 }

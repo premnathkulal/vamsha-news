@@ -17,9 +17,11 @@ function App() {
     <div className="app">
       {location.pathname !== Routes.ADMIN_LOGIN && (
         <>
-          <div className="logo-banner">
-            <img src={LogoBanner} alt="logo-banner" className="logo-banner" />
-          </div>
+          {location.pathname !== Routes.ADMIN_PAGE && (
+            <div className="logo-banner">
+              <img src={LogoBanner} alt="logo-banner" className="logo-banner" />
+            </div>
+          )}
           <Header />
         </>
       )}
