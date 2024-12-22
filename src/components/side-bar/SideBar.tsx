@@ -4,6 +4,7 @@ import { RootState } from "../../store/app-store";
 import { setIsSideBarOpen } from "../../store/slices/ui-controls";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faGaugeHigh,
   faHome,
   faNewspaper,
   faRectangleAd,
@@ -50,49 +51,35 @@ const SideBar = () => {
     }
   }, [isSideBarOpen]);
 
-  const handleManageAdvertisement = () => {
-    // Handle manage advertisement
-  };
-
-  const handleManageNewspapers = () => {
-    // Handle manage newspapers
-  };
-
   return (
     <div className={`sidebar sidebar-mobile ${isSideBarOpen ? "open" : ""}`}>
       <ul className="options">
         <li className="option">
-          <div
-            onClick={handleManageNewspapers}
-            className="action-btn primary-btn"
-          >
+          <div onClick={() => {}} className="action-btn primary-btn">
             Home
             <FontAwesomeIcon className="icon" icon={faHome} />
           </div>
         </li>
         <li className="option selected">
-          <div
-            onClick={handleManageNewspapers}
-            className="action-btn primary-btn"
-          >
+          <div onClick={() => {}} className="action-btn primary-btn">
+            Dashboard
+            <FontAwesomeIcon className="icon" icon={faGaugeHigh} />
+          </div>
+        </li>
+        <li className="option">
+          <div onClick={() => {}} className="action-btn primary-btn">
             Manage Newspapers
             <FontAwesomeIcon className="icon" icon={faNewspaper} />
           </div>
         </li>
         <li className="option">
-          <div
-            onClick={handleManageAdvertisement}
-            className="action-btn primary-btn"
-          >
+          <div onClick={() => {}} className="action-btn primary-btn">
             Manage Advertisement
             <FontAwesomeIcon className="icon" icon={faRectangleAd} />
           </div>
         </li>
         <li className="option bottom-option">
-          <div
-            onClick={handleManageAdvertisement}
-            className="action-btn primary-btn"
-          >
+          <div onClick={() => {}} className="action-btn primary-btn">
             Logout
             <FontAwesomeIcon
               className="icon logout-icon"

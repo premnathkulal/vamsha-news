@@ -51,6 +51,5 @@ export default tseslint.config({
 
 # TODO:
 
-- Create separate component for side bar
 - Add google analytics
 - Add beautiful date picker
