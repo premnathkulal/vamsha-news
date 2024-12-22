@@ -41,7 +41,9 @@ function App() {
       <div className="app-content">
         <Outlet />
       </div>
-      {location.pathname !== Routes.ADMIN_LOGIN && <Footer />}
+      {![Routes.ADMIN_LOGIN, Routes.ADMIN_PAGE].includes(
+        location.pathname as Routes
+      ) && <Footer />}
     </div>
   );
 }
