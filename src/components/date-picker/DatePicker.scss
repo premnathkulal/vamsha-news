@@ -3,6 +3,16 @@
 .date-picker-container {
   position: relative;
 
+  .date-picker-input {
+    span {
+      color: var.$white;
+      padding-left: 0.5rem;
+    }
+    .fa-calendar-days {
+      color: var.$white;
+    }
+  }
+
   .calendar {
     position: absolute;
     top: 21px;

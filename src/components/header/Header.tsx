@@ -31,11 +31,7 @@ const Header = () => {
       <img src={VamshaLogo} alt="brand-logo" className="brand-logo" />
       <div className="menu"></div>
       <div className="date-picker">
-        {/* <FontAwesomeIcon icon={faCalendarDays} /> */}
-        {/* <span> */}
-        {/* {currentDate}  */}
         <DatePicker />
-        {/* </span> */}
       </div>
     </div>
   );
