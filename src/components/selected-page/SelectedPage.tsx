@@ -101,7 +101,7 @@ const SelectedPdf = (props: SelectedPdfProps) => {
   // Confirm the selection and capture the selected region
   const handleSelect = async () => {
     const container = pdfContainerRef.current;
-    alert(container);
+
     if (container) {
       const selectionBox = container.querySelector(
         ".selection-box"
@@ -117,7 +117,26 @@ const SelectedPdf = (props: SelectedPdfProps) => {
         logging: true, // Optional: Enable logging to debug issues
         useCORS: true, // To support cross-origin content
       });
-      setImagePreview(canvas.toDataURL("image/png"));
+
+      const newCanvas = document.createElement("canvas");
+      const ctx = newCanvas.getContext("2d");
+
+      if (ctx) {
+        // Set the new canvas width to the original image width
+        newCanvas.width = canvas.width;
+        // Increase the height to make space for the text
+        newCanvas.height = canvas.height + 100; // 100px for the text area
+
+        // Fill the background with white
+        ctx.fillStyle = "white"; // Set the background color to white
+        ctx.fillRect(0, 0, newCanvas.width, newCanvas.height); // Fill the canvas with white
+
+        // Draw the captured image below the text area
+        ctx.drawImage(canvas, 0, 100); // Draw the image starting at y=100 to leave space for text
+
+        // Set the image preview with the new canvas image
+        setImagePreview(newCanvas.toDataURL("image/png"));
+      }
     }
   };
 
