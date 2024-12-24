@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Document, Page } from "react-pdf";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/app-store";
+import SelectedPdf from "../../components/selected-page/SelectedPage";
 
 const Home = () => {
   const [file] = useState(NewsPdf);
@@ -40,31 +41,6 @@ const Home = () => {
     setNumPages(numPages);
   };
 
-  useEffect(() => {
-    if (selectedPage !== 0) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [selectedPage]);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (!(event.target as HTMLElement).closest(".selected-page-container")) {
-        setSelectedPage(0);
-      }
-    };
-
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
-
   return (
     <div className="home">
       <div className="news-paper-container">
@@ -87,19 +63,13 @@ const Home = () => {
         ))}
       </div>
       {!!selectedPage && (
-        <div className="news-paper-container selected-page">
-          <div className="selected-page-container">
-            <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
-              <Page
-                pageNumber={selectedPage}
-                renderTextLayer={false}
-                renderAnnotationLayer={false}
-                width={pageWidth}
-                height={pageHeight}
-              />
-            </Document>
-          </div>
-        </div>
+        <SelectedPdf
+          pageNumber={selectedPage}
+          pageHeight={pageHeight}
+          pageWidth={pageWidth}
+          newsPdf={NewsPdf}
+          resetPageNumber={() => setSelectedPage(0)}
+        />
       )}
     </div>
   );

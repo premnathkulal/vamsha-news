@@ -1,0 +1,67 @@
+@use "../../styles/variables" as var;
+
+.selected-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: rgba(54, 47, 47, 0.716);
+  overflow: scroll !important;
+
+  .selected-page-container {
+    position: relative;
+
+    .selection-box {
+      position: absolute;
+      border: 2px dashed #007bff;
+      background: rgba(0, 123, 255, 0.1);
+      pointer-events: none;
+    }
+  }
+
+  .preview-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    img {
+      max-height: 92vh;
+      position: relative;
+      max-width: 92%;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+
+    .preview-control {
+      display: flex;
+      gap: 2px;
+
+      button {
+        background: var.$secondary-color;
+        color: var.$primary-color;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 0.5rem;
+        padding: 0.8rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        border: 2px solid var.$primary-color;
+
+        &:hover {
+          background: var.$primary-color;
+          color: var.$white;
+        }
+      }
+    }
+  }
+}
