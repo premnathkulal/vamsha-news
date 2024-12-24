@@ -4,6 +4,8 @@
   position: relative;
 
   .date-picker-input {
+    cursor: pointer;
+
     span {
       color: var.$white;
       padding-left: 0.5rem;
@@ -21,8 +23,8 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: var.$card-shadow;
-    width: 273px;
     z-index: 10;
+    width: 273px;
 
     .calendar-header {
       text-align: center;
@@ -31,6 +33,13 @@
       color: var.$white;
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+
+      .calendar-month,
+      .calendar-year {
+        cursor: pointer;
+      }
 
       button {
         background: none;
@@ -58,42 +67,120 @@
     .calendar-body {
       padding: 10px;
 
-      .day-labels {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        text-align: center;
-        font-weight: bold;
-        margin-bottom: 10px;
+      .days {
+        .day-labels {
+          display: grid;
+          grid-template-columns: repeat(7, 1fr);
+          text-align: center;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+
+        .dates {
+          display: grid;
+          grid-template-columns: repeat(7, 1fr);
+          text-align: center;
+          gap: 5px;
+
+          .date {
+            padding: 8px;
+            background: var.$secondary-color;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            color: var.$primary-color;
+
+            &:hover {
+              background: var.$primary-color;
+              color: var.$white;
+            }
+
+            &:active {
+              background: var.$primary-color;
+              color: var.$white;
+            }
+          }
+
+          .empty {
+            visibility: hidden;
+          }
+        }
       }
 
-      .dates {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        text-align: center;
-        gap: 5px;
+      .months {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
 
-        .date {
-          padding: 8px;
+        span {
+          width: 48%;
           background: var.$secondary-color;
-          border-radius: 4px;
-          cursor: pointer;
-          transition: background 0.3s;
+          padding: 0.5rem 0;
           color: var.$primary-color;
+          cursor: pointer;
+          border-radius: 2px;
 
           &:hover {
             background: var.$primary-color;
             color: var.$white;
           }
+        }
+      }
 
-          &:active {
-            background: var.$primary-color;
-            color: var.$white;
+      .years {
+        .select-year {
+          color: var.$primary-color;
+          font-size: 2rem;
+          padding: 2rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          span {
+            padding: 1rem;
+            width: 8rem;
+          }
+
+          .fa-icon {
+            cursor: pointer;
+            font-weight: 800;
           }
         }
 
-        .empty {
-          visibility: hidden;
+        .select-btn {
+          background: var.$primary-color;
+          color: var.$white;
+          padding: 0.5rem;
+          border-radius: 4px;
+          cursor: pointer;
         }
+      }
+
+      .selected {
+        background: var.$primary-color !important;
+        color: var.$white !important;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .calender-container {
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      background: rgba(34, 34, 34, 0.846);
+      left: 0;
+      top: 0;
+      z-index: 1000;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .calendar {
+        position: unset;
+        width: 350px;
       }
     }
   }
