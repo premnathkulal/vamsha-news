@@ -10,6 +10,7 @@ const Home = () => {
   const [numPages, setNumPages] = useState(null);
   const [pageWidth, setPageWidth] = useState(500);
   const [pageHeight, setPageHeight] = useState(790);
+  const [selectedPage, setSelectedPage] = useState(0);
 
   const isMobileDevice = useSelector<RootState>(
     (state) => state.uiControls.isMobileDevice
@@ -39,11 +40,36 @@ const Home = () => {
     setNumPages(numPages);
   };
 
+  useEffect(() => {
+    if (selectedPage !== 0) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [selectedPage]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (!(event.target as HTMLElement).closest(".selected-page-container")) {
+        setSelectedPage(0);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="home">
-      <div className="new-paper-container">
+      <div className="news-paper-container">
         {Array.from(new Array(numPages), (_, index) => (
-          <div key={index}>
+          <div key={index} onDoubleClick={() => setSelectedPage(index + 1)}>
             <Document
               file={file}
               onLoadSuccess={onDocumentLoadSuccess}
@@ -60,6 +86,21 @@ const Home = () => {
           </div>
         ))}
       </div>
+      {!!selectedPage && (
+        <div className="news-paper-container selected-page">
+          <div className="selected-page-container">
+            <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
+              <Page
+                pageNumber={selectedPage}
+                renderTextLayer={false}
+                renderAnnotationLayer={false}
+                width={pageWidth}
+                height={pageHeight}
+              />
+            </Document>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
